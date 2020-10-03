@@ -170,9 +170,17 @@ Starting idn_test_web_1 ... done
 └─▪ 
 
 ````
+
 to running on the background
 
-2. proses monitoring
+2. show the docker images
+```
+idn_test_php                                         latest              4263a8f6b3db        5 hours ago         87MB
+nginx                                                latest              7e4d58f0e5f3        3 weeks ago         133MB
+mysql                                                5.7                 ef08065b0a30        3 weeks ago         448MB
+alpine                                               3.11                f70734b6a266        5 months ago        5.61MB
+```
+3. proses monitoring
 ```bash
 ┌─[±][main S:1 U:1 ✗][idn_test][]
 └─▪ docker-compose ps
@@ -183,12 +191,12 @@ idn_test_web_1   /docker-entrypoint.sh ngin ...   Up      0.0.0.0:80->80/tcp
 mysql            docker-entrypoint.sh mysqld      Up      0.0.0.0:8989->3306/tcp, 33060/tcp
 
 ```
-3. acces the web
+4. acces the web
 - an example php script for connecting php to mysql database
 ![acces website](img/web-test.png)
 - show the information of installed php version
 ![php info](img/phpinfo.png)
-1. show logs of our service
+5. show logs of our service
 ```bash
 ┌─[±][main S:1 U:1 ✗][idn_test][]
 └─▪ docker-compose logs -f php  
@@ -201,7 +209,7 @@ php_1      | [Sat Oct  3 07:15:18 2020] 172.20.0.4:51598 [200]: /
 
 ```
 
-4. stop
+6. stop
 
 ```bash
 ┌─[±][main S:1 U:1 ✗][idn_test][]
@@ -213,6 +221,4 @@ Removing mysql          ... done
 Removing idn_test_web_1 ... done
 Removing idn_test_php_1 ... done
 Removing network idn_test_default
-s
-
 ````

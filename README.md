@@ -172,7 +172,36 @@ Starting idn_test_web_1 ... done
 ````
 to running on the background
 
-2. stop
+2. proses monitoring
+```bash
+┌─[±][main S:1 U:1 ✗][idn_test][]
+└─▪ docker-compose ps
+     Name                   Command               State                 Ports              
+-------------------------------------------------------------------------------------------
+idn_test_php_1   php -S 0.0.0.0:9000 -t .         Up      9000/tcp           
+idn_test_web_1   /docker-entrypoint.sh ngin ...   Up      0.0.0.0:80->80/tcp               
+mysql            docker-entrypoint.sh mysqld      Up      0.0.0.0:8989->3306/tcp, 33060/tcp
+
+```
+3. acces the web
+- an example php script for connecting php to mysql database
+![acces website](img/web-test.png)
+- show the information of installed php version
+![php info](img/phpinfo.png)
+1. show logs of our service
+```bash
+┌─[±][main S:1 U:1 ✗][idn_test][]
+└─▪ docker-compose logs -f php  
+Attaching to idn_test_php_1
+php_1      | PHP 7.3.22 Development Server started at Sat Oct  3 07:13:27 2020
+php_1      | PHP 7.3.22 Development Server started at Sat Oct  3 07:14:02 2020
+php_1      | [Sat Oct  3 07:15:16 2020] 172.20.0.4:51590 [200]: /
+php_1      | [Sat Oct  3 07:15:18 2020] 172.20.0.4:51594 [200]: /
+php_1      | [Sat Oct  3 07:15:18 2020] 172.20.0.4:51598 [200]: /
+
+```
+
+4. stop
 
 ```bash
 ┌─[±][main S:1 U:1 ✗][idn_test][]
@@ -187,29 +216,3 @@ Removing network idn_test_default
 s
 
 ````
-
-3. proses monitoring
-```bash
-┌─[±][main S:1 U:1 ✗][idn_test][]
-└─▪ docker-compose ps
-     Name                   Command               State                 Ports              
--------------------------------------------------------------------------------------------
-idn_test_php_1   php -S 0.0.0.0:9000 -t .         Up      9000/tcp           
-idn_test_web_1   /docker-entrypoint.sh ngin ...   Up      0.0.0.0:80->80/tcp               
-mysql            docker-entrypoint.sh mysqld      Up      0.0.0.0:8989->3306/tcp, 33060/tcp
-
-```
-4. acces the web
-![acces website](img/web-test.png)
-1. show logs of our service
-```bash
-┌─[±][main S:1 U:1 ✗][idn_test][]
-└─▪ docker-compose logs -f php  
-Attaching to idn_test_php_1
-php_1      | PHP 7.3.22 Development Server started at Sat Oct  3 07:13:27 2020
-php_1      | PHP 7.3.22 Development Server started at Sat Oct  3 07:14:02 2020
-php_1      | [Sat Oct  3 07:15:16 2020] 172.20.0.4:51590 [200]: /
-php_1      | [Sat Oct  3 07:15:18 2020] 172.20.0.4:51594 [200]: /
-php_1      | [Sat Oct  3 07:15:18 2020] 172.20.0.4:51598 [200]: /
-
-```

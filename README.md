@@ -186,7 +186,7 @@ alpine                                               3.11                f70734b
 └─▪ docker-compose ps
      Name                   Command               State                 Ports              
 -------------------------------------------------------------------------------------------
-idn_test_php_1   php -S 0.0.0.0:9000 -t .         Up      9000/tcp           
+idn_test_php_1   php -S 0.0.0.0:9000 -t .         Up      0.0.0.0:9000->9000/tcp           
 idn_test_web_1   /docker-entrypoint.sh ngin ...   Up      0.0.0.0:80->80/tcp               
 mysql            docker-entrypoint.sh mysqld      Up      0.0.0.0:8989->3306/tcp, 33060/tcp
 

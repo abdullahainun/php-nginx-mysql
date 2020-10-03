@@ -7,8 +7,6 @@ services:
             - ./.docker/conf/php/php.ini:/etc/php7/conf.d/50-setting.ini
             - ./.docker/conf/php/php-fpm.conf:/etc/php7/php-fpm.conf
             - ./web:/application
-        ports:
-            - 9000:9000
         depends_on:
             - mysqldb
     web:

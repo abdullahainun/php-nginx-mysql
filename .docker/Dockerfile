@@ -33,6 +33,9 @@ RUN apk --update add \
         php7-soap \
         php7-xml \
         php7-zip \
+        php7-fileinfo \
+        php7-tokenizer \
+        php7-xmlwriter \
     && rm -rf /var/cache/apk/*
 
 WORKDIR /application
